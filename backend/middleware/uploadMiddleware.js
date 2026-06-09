@@ -8,7 +8,10 @@ const storage = multer.diskStorage({
 
   filename: function (req, file, cb) {
     const uniqueName =
-      Date.now() + "-" + Math.round(Math.random() * 1e9) + path.extname(file.originalname);
+      Date.now() +
+      "-" +
+      Math.round(Math.random() * 1e9) +
+      path.extname(file.originalname);
 
     cb(null, uniqueName);
   },
@@ -17,7 +20,7 @@ const storage = multer.diskStorage({
 const fileFilter = (req, file, cb) => {
   const allowedTypes = /jpeg|jpg|png|webp|mp4|mov|avi/;
   const extName = allowedTypes.test(
-    path.extname(file.originalname).toLowerCase()
+    path.extname(file.originalname).toLowerCase(),
   );
   const mimeType =
     file.mimetype.startsWith("image/") || file.mimetype.startsWith("video/");

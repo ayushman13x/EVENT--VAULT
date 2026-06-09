@@ -12,16 +12,16 @@ const eventSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-   
-    coverImage: {
-  type: String,
-  default: "",
-},
 
-coverImageKey: {
-  type: String,
-  default: "",
-},
+    coverImage: {
+      type: String,
+      default: "",
+    },
+
+    coverImageKey: {
+      type: String,
+      default: "",
+    },
 
     category: {
       type: String,
@@ -79,7 +79,7 @@ coverImageKey: {
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 module.exports = mongoose.model("Event", eventSchema);

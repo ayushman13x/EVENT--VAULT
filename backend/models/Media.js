@@ -18,11 +18,11 @@ const mediaSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    
+
     s3Key: {
-  type: String,
-  default: "",
-},
+      type: String,
+      default: "",
+    },
 
     fileName: {
       type: String,
@@ -61,35 +61,34 @@ const mediaSchema = new mongoose.Schema(
     ],
 
     taggedUsers: [
-  {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
-  },
-],
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+      },
+    ],
 
     comments: [
-  {
-    user: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-      required: true,
-    },
-    text: {
-      type: String,
-      required: true,
-      trim: true,
-    },
-    createdAt: {
-      type: Date,
-      default: Date.now,
-    },
-  },
-],
-
+      {
+        user: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "User",
+          required: true,
+        },
+        text: {
+          type: String,
+          required: true,
+          trim: true,
+        },
+        createdAt: {
+          type: Date,
+          default: Date.now,
+        },
+      },
+    ],
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 module.exports = mongoose.model("Media", mediaSchema);

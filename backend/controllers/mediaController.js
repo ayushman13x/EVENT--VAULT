@@ -27,7 +27,6 @@ const attachDisplayUrls = async (mediaItems) => {
   );
 };
 
-// Upload media
 const uploadMedia = async (req, res) => {
   try {
     const { eventId, visibility, tags } = req.body;
@@ -137,7 +136,6 @@ const uploadMedia = async (req, res) => {
   }
 };
 
-// Get media by event
 const getMediaByEvent = async (req, res) => {
   try {
     const event = await Event.findById(req.params.eventId);
@@ -160,12 +158,10 @@ const getMediaByEvent = async (req, res) => {
       .map((id) => id.toString())
       .includes(req.user._id.toString());
 
-    // Overall admin can see all private media
     if (req.user.role === "admin") {
       canViewPrivate = true;
     }
 
-    // Club member can see private media only for their own club event
     if (
       req.user.role === "member" &&
       event.eventScope === "club" &&
@@ -203,7 +199,6 @@ const getMediaByEvent = async (req, res) => {
   }
 };
 
-// Like or unlike media
 const toggleLikeMedia = async (req, res) => {
   try {
     const media = await Media.findById(req.params.id);
@@ -241,7 +236,6 @@ const toggleLikeMedia = async (req, res) => {
   }
 };
 
-// Favourite or unfavourite media
 const toggleFavouriteMedia = async (req, res) => {
   try {
     const media = await Media.findById(req.params.id);

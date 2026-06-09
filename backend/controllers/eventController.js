@@ -1,31 +1,31 @@
 const Event = require("../models/Event");
 const User = require("../models/User");
-// Create event
+
 const createEvent = async (req, res) => {
   try {
     const {
-  title,
-  description,
-  category,
-  date,
-  location,
-  visibility,
-  eventScope,
-  clubName,
-  assignedPhotographers,
-} = req.body;
+      title,
+      description,
+      category,
+      date,
+      location,
+      visibility,
+      eventScope,
+      clubName,
+      assignedPhotographers,
+    } = req.body;
 
     const event = await Event.create({
-  title,
-  description,
-  category,
-  date,
-  location,
-  visibility,
-  eventScope,
-  clubName,
-  assignedPhotographers,
-});
+      title,
+      description,
+      category,
+      date,
+      location,
+      visibility,
+      eventScope,
+      clubName,
+      assignedPhotographers,
+    });
 
     res.status(201).json({
       success: true,
@@ -41,7 +41,6 @@ const createEvent = async (req, res) => {
   }
 };
 
-// Get all events
 const getEvents = async (req, res) => {
   try {
     let query = {
@@ -81,7 +80,6 @@ const getEvents = async (req, res) => {
   }
 };
 
-// Get single event
 const getEventById = async (req, res) => {
   try {
     const event = await Event.findById(req.params.id);
@@ -106,7 +104,6 @@ const getEventById = async (req, res) => {
   }
 };
 
-// Update event
 const updateEvent = async (req, res) => {
   try {
     const event = await Event.findByIdAndUpdate(req.params.id, req.body, {
@@ -135,7 +132,6 @@ const updateEvent = async (req, res) => {
   }
 };
 
-// Delete event
 const deleteEvent = async (req, res) => {
   try {
     const event = await Event.findByIdAndDelete(req.params.id);
@@ -160,7 +156,6 @@ const deleteEvent = async (req, res) => {
   }
 };
 
-// Assign photographer to event
 const assignPhotographerToEvent = async (req, res) => {
   try {
     const { photographerId } = req.body;
@@ -184,7 +179,7 @@ const assignPhotographerToEvent = async (req, res) => {
     }
 
     const alreadyAssigned = event.assignedPhotographers.some(
-      (id) => id.toString() === photographerId
+      (id) => id.toString() === photographerId,
     );
 
     if (!alreadyAssigned) {

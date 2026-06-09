@@ -21,15 +21,15 @@ const registerUser = async (req, res) => {
         : "none";
 
     const user = await User.create({
-  name,
-  email,
-  password,
-  role: "viewer",
-  requestedRole: safeRequestedRole,
-  approvalStatus:
-    safeRequestedRole === "none" ? "not_requested" : "pending",
-  clubName: safeRequestedRole === "member" ? clubName : "",
-});
+      name,
+      email,
+      password,
+      role: "viewer",
+      requestedRole: safeRequestedRole,
+      approvalStatus:
+        safeRequestedRole === "none" ? "not_requested" : "pending",
+      clubName: safeRequestedRole === "member" ? clubName : "",
+    });
 
     res.status(201).json({
       success: true,
@@ -83,14 +83,14 @@ const loginUser = async (req, res) => {
       success: true,
       message: "Login successful",
       user: {
-  _id: user._id,
-  name: user.name,
-  email: user.email,
-  role: user.role,
-  requestedRole: user.requestedRole,
-  approvalStatus: user.approvalStatus,
-  clubName: user.clubName,
-},
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
+        requestedRole: user.requestedRole,
+        approvalStatus: user.approvalStatus,
+        clubName: user.clubName,
+      },
       token: generateToken(user._id),
     });
   } catch (error) {

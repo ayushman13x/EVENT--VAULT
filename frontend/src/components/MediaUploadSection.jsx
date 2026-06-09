@@ -31,9 +31,6 @@ const [isDragging, setIsDragging] = useState(false);
       });
   }, []);
 
-  // const handleFileChange = (event) => {
-  //   setFiles(Array.from(event.target.files));
-  // };
 
   const handleFileChange = (event) => {
   const selectedFiles = Array.from(event.target.files);

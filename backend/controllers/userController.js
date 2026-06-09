@@ -1,6 +1,5 @@
 const User = require("../models/User");
 
-// Get all pending role requests
 const getPendingRoleRequests = async (req, res) => {
   try {
     const users = await User.find({
@@ -22,7 +21,6 @@ const getPendingRoleRequests = async (req, res) => {
   }
 };
 
-// Approve role request
 const approveRoleRequest = async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
@@ -72,7 +70,6 @@ const approveRoleRequest = async (req, res) => {
   }
 };
 
-// Reject role request
 const rejectRoleRequest = async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
