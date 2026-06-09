@@ -99,27 +99,6 @@ EVENT--VAULT/
 └── README.md
 ```
 
-## Environment Variables
-
-### Backend `.env`
-
-```env
-PORT=5000
-MONGO_URI=your_mongodb_atlas_connection_string
-JWT_SECRET=your_jwt_secret
-
-AWS_ACCESS_KEY_ID=your_aws_access_key
-AWS_SECRET_ACCESS_KEY=your_aws_secret_key
-AWS_REGION=your_aws_region
-AWS_S3_BUCKET_NAME=your_s3_bucket_name
-```
-
-### Frontend `.env`
-
-```env
-VITE_API_URL=https://event-vault-dlcl.onrender.com
-```
-
 Never commit real secret keys or database URLs to GitHub.
 
 ## Local Setup
